@@ -1,0 +1,64 @@
+<main>
+    <section class="section section-shaped section-lg">
+        <div class="shape shape-style-1 shape-default">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="container pt-lg-md">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card bg-secondary shadow border-0">
+                        <div class="card-header bg-white">
+                            <h5>Place New Order</h5>
+                        </div>
+                        <div class="card-body px-lg-5 py-lg-5">
+                            <form role="form">
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <input class="form-control" (change)="Order.link = orderLink.value"
+                                               #orderLink
+                                               placeholder="Amazon Link" type="url"
+                                               required="">
+                                    </div>
+                                    <h6>COPY LINKS FOR ITEMS YOU WANT FROM SITES LIKE (Amazon, eBay)</h6>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <input class="form-control" [disabled]="!orderLink.checkValidity()"
+                                               (change)="Order.qty = orderQty.value" #orderQty
+                                               placeholder="Amazon Link" type="number" [defaultValue]="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <textarea class="form-control" [disabled]="!orderLink.checkValidity()"
+                                                  (change)="Order.note = orderNote.value" #orderNote></textarea>
+                                    </div>
+                                </div>
+                                <div *ngIf="orderLink.value.length && !orderLink.checkValidity()" class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <span class="alert-inner--icon"><i class="ni ni-bell-55"></i></span>
+                                    <span class="alert-inner--text"> <strong>Error!</strong> The url you inserted is not valid!</span>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="text-center pull-right">
+                                    <button type="button" [disabled]="!orderLink.checkValidity()" (click)="addOrder()"
+                                            class="btn btn-primary my-4">Place order
+                                    </button>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

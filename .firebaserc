@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "zelious": {
+      "hosting": {
+        "argon-design-system-angular": [
+          "zelious"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "zelious"
+  }
+}

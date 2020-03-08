@@ -19,12 +19,7 @@
                 <small>Sign in with</small>
               </div>
               <div class="btn-wrapper text-center">
-                <a href="javascript:void(0)" class="btn btn-neutral btn-icon">
-                  <span class="btn-inner--icon">
-                    <img src="./assets/img/icons/common/github.svg">
-                  </span>
-                  <span class="btn-inner--text">Github</span>
-                </a>
+
                 <a href="javascript:void(0)" class="btn btn-neutral btn-icon">
                   <span class="btn-inner--icon">
                     <img src="./assets/img/icons/common/google.svg">
@@ -71,8 +66,8 @@
                   </label>
                 </div>
                 <div class="text-center">
-                  <button type="button" class="btn btn-dark my-4"
-                          (click)="loginTest(2)">Test Login</button>
+                  <!--<button type="button" class="btn btn-dark my-4"-->
+                          <!--(click)="loginTest(2)">Test Login</button>-->
                   <button type="button" class="btn btn-primary my-4" [disabled]="!loginForm.valid"
                           (click)="login()">Sign in</button>
                 </div>
@@ -86,7 +81,7 @@
               </a>
             </div>
             <div class="col-6 text-right">
-              <a href="javascript:void(0)" class="text-light">
+              <a [routerLink]="['/register']" class="text-light">
                 <small>Create new account</small>
               </a>
             </div>

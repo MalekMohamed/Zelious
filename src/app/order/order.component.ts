@@ -11,6 +11,8 @@ import {formatDate} from '@angular/common';
 
 export class OrderComponent implements OnInit {
     @ViewChild('orderLink') link: ElementRef;
+    @ViewChild('orderNote') note: ElementRef;
+    @ViewChild('orderQty') qty: ElementRef;
     public Order: any = {link: '', qty: 1, note: ''};
     client;
 
@@ -29,6 +31,8 @@ export class OrderComponent implements OnInit {
         this.Order.createdAt = formatDate(new Date(), 'yyyy-MM-dd h:mm a', 'en-US');
         this.orders.createOrder(this.Order).then(res => {
             this.link.nativeElement.value = '';
+            this.qty.nativeElement.value = 1;
+            this.note.nativeElement.value = '';
         });
         console.log(this.client.name + 'Ordered: ', this.Order);
     }

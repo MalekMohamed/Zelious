@@ -38,7 +38,9 @@
                                 <small>Or sign up with credentials</small>
                             </div>
                             <form role="form" [formGroup]="registerForm">
-                                <div class="form-group" [class.has-danger]="registerForm.controls.name.touched && registerForm.controls.name.errors?.required" [ngClass]="{'focused':focus===true}">
+                                <div class="form-group"
+                                     [class.has-danger]="registerForm.controls.name.touched && registerForm.controls.name.errors?.required"
+                                     [ngClass]="{'focused':focus===true}">
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
@@ -63,7 +65,8 @@
 
                                     </div>
                                 </div>
-                                <div class="form-group" [class.has-danger]="registerForm.controls.password.touched && registerForm.controls.password.errors?.required">
+                                <div class="form-group"
+                                     [class.has-danger]="registerForm.controls.password.touched && registerForm.controls.password.errors?.required">
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
@@ -83,7 +86,7 @@
                                                    type="checkbox">
                                             <label class="custom-control-label" for="customCheckRegister">
                         <span>I agree with the
-                          <a href="javascript:void(0)">Privacy Policy</a>
+                          <a [routerLink]="['/privacy-policy']">Privacy Policy</a>
                         </span>
                                             </label>
                                         </div>

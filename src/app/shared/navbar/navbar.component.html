@@ -26,15 +26,19 @@
                 </div>
             </div>
             <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
-
+                <li class="nav-item">
+                    <a class="nav-link nav-link-icon" [routerLink]="['/']">
+                        <span class="nav-link-inner--text">Home</span>
+                    </a>
+                </li>
             </ul>
             <ul class="navbar-nav align-items-lg-center ml-lg-auto">
-                <li class="nav-item" *ngIf="!userLogged">
+                <li class="nav-item" *ngIf="!auth.currentUser">
                     <a class="nav-link nav-link-icon" [routerLink]="['/login']" title="Login">
                         <span class="nav-link-inner--text">Login</span>
                     </a>
                 </li>
-                <li class="nav-item" *ngIf="!userLogged">
+                <li class="nav-item" *ngIf="!auth.currentUser">
                     <a class="nav-link nav-link-icon" [routerLink]="['/register']" title="Create account">
                         <span class="nav-link-inner--text">Register</span>
                     </a>
@@ -44,14 +48,14 @@
                        <!--<span class="nav-link-inner&#45;&#45;text">{{userLogged.name}}</span>-->
                     <!--</a>-->
                 <!--</li>-->
-                <li class="nav-item" *ngIf="userLogged">
+                <li class="nav-item" *ngIf="auth.currentUser">
                     <a class="nav-link nav-link-icon" [routerLink]="['/my-orders']" title="Your orders">
                         <span class="nav-link-inner--text">My Orders</span>
                     </a>
                 </li>
 
-                <li class="nav-item" *ngIf="userLogged">
-                    <a class="nav-link nav-link-icon" (click)="logOut()" title="Sign out">
+                <li class="nav-item" *ngIf="auth.currentUser">
+                    <a class="nav-link nav-link-icon" href="#" (click)="logOut()" title="Sign out">
 
                         <span class="nav-link-inner--text"><i class="fa fa-sign-out"></i> Logout</span>
                     </a>

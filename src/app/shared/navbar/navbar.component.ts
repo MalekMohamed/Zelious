@@ -15,10 +15,10 @@ export class NavbarComponent implements OnInit {
     userLogged;
 
     constructor(public location: Location, private router: Router, private auth: AuthService) {
+        this.userLogged = this.auth.isLoggedIn();
     }
 
     ngOnInit() {
-        this.userLogged = JSON.parse(localStorage.getItem('user'));
         this.router.events.subscribe((event) => {
             this.isCollapsed = true;
             if (event instanceof NavigationStart) {
@@ -43,4 +43,5 @@ export class NavbarComponent implements OnInit {
         this.auth.SignOut();
         this.userLogged = '';
     }
+
 }

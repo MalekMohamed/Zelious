@@ -7,6 +7,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppComponent} from './app.component';
 import {RegisterComponent} from './register/register.component';
 import {LandingComponent} from './landing/landing.component';
+import {ReturnPolicyComponent} from './return-policy/return-policy.component';
+import {PrivacyPolicyComponent} from './privacy-policy/privacy-policy.component';
+import {TermsComponent} from './terms/terms.component';
+import {ContactUsComponent} from './contact-us/contact-us.component';
 import {MyOrdersComponent} from './my-orders/my-orders.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToastrModule} from 'ngx-toastr';
@@ -27,7 +31,11 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
         MyOrdersComponent,
         NavbarComponent,
         FooterComponent,
-        LoginComponent
+        LoginComponent,
+        ReturnPolicyComponent,
+        TermsComponent,
+        PrivacyPolicyComponent,
+        ContactUsComponent
     ],
     imports: [
         BrowserAnimationsModule,

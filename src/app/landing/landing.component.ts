@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {LandingService} from '../shared/services/landing.service';
 
 @Component({
     selector: 'app-landing',
@@ -7,11 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class LandingComponent implements OnInit {
-  focus: any;
-  focus1: any;
+    focus: any;
+    focus1: any;
+    @ViewChild('Subscribtion') emailField: ElementRef;
+    subEmail = '';
 
-  constructor() { }
+    constructor(private landingService: LandingService) {
+    }
 
-  ngOnInit() {}
+    ngOnInit() {
+    }
 
+    emailSubscribe() {
+        console.log(this.subEmail);
+        this.landingService.emailsubscription(this.subEmail).then(res=> {
+            this.emailField.nativeElement.value = '';
+        });
+
+    }
 }

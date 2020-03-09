@@ -36,6 +36,8 @@ export class RegisterComponent implements OnInit {
     }
 
     register() {
-        this.usersService.createUser(this.registerForm.value);
+        this.usersService.createUser(this.registerForm.value).then(res => {
+            this.registerForm.reset();
+        });
     }
 }

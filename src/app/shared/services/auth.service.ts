@@ -32,8 +32,8 @@ export class AuthService implements OnInit {
                 this.afs.doc(`users/${user.uid}`).get().subscribe(userDoc => {
                     this.currentUser = userDoc.data();
                     localStorage.setItem('user', JSON.stringify(this.currentUser));
-
-                    // this.toastrService.success('Authentication successful.');
+                    this.router.navigateByUrl('/my-orders');
+                    this.toastrService.success('Authentication successful.');
                 });
             } else {
                 this.currentUser = null;
@@ -48,8 +48,7 @@ export class AuthService implements OnInit {
 
     SignIn(email, password) {
         return this.afAuth.auth.signInWithEmailAndPassword(email, password).then(res => {
-            this.router.navigate(['/my-orders']);
-            this.toastrService.success('Authentication successful.');
+            this.router.navigateByUrl('/my-orders');
         }).catch((error) => {
             this.toastrService.error('Wrong Email or Password.');
         });
@@ -67,12 +66,11 @@ export class AuthService implements OnInit {
         this.showLoader = true;
         return this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail).then(() => {
             this.toastrService.success('Password reset email sent, check your inbox.');
-            this.showLoader = false;
         }).catch((error) => {
-            this.showLoader = false;
             this.toastrService.error(error);
         });
     }
+
     isLoggedIn() {
         const user = JSON.parse(localStorage.getItem('user'));
         return user;
